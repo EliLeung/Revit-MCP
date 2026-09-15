@@ -1,6 +1,6 @@
 # H2-Revit v1.0
 
-**Revit 2026 的 MCP 多客户端连接与连接管理增强版。** 基于 [bimwright/rvt-mcp](https://github.com/bimwright/rvt-mcp) 0.6.1，保留 Apache-2.0 许可和原作者归属。
+**Revit 2026 的 MCP 多客户端连接与连接管理增强版。** 
 
 [下载安装包](https://github.com/EliLeung/Revit-MCP/releases/download/v0.1.0-beta.1/H2-Revit-v0.1.0-beta.1-Revit2026-win-x64.zip) · [发布说明](https://github.com/EliLeung/Revit-MCP/releases/tag/v0.1.0-beta.1) · [许可证](LICENSE) · [第三方声明](THIRD-PARTY-NOTICES.md)
 
