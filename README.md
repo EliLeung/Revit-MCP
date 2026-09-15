@@ -2,7 +2,7 @@
 
 **Revit 2026 的 MCP 多客户端连接与连接管理增强版。** 
 
-[下载安装包](https://github.com/EliLeung/Revit-MCP/releases/download/v0.1.0-beta.1/H2-Revit-v0.1.0-beta.1-Revit2026-win-x64.zip) · [发布说明](https://github.com/EliLeung/Revit-MCP/releases/tag/v0.1.0-beta.1) · [许可证](LICENSE) · [第三方声明](THIRD-PARTY-NOTICES.md)
+[下载安装包](https://github.com/EliLeung/Revit-MCP/releases/download/v1.0/H2-Revit-v1.0-Revit2026-win-x64.zip) · [发布说明](https://github.com/EliLeung/Revit-MCP/releases/tag/v1.0) · [许可证](LICENSE) · [第三方声明](THIRD-PARTY-NOTICES.md)
 
 **只想安装使用？下载上面的安装包即可，无需下载仓库源码。** 开发与历史文档见 [文档目录](docs/README.md)。
 
@@ -27,7 +27,7 @@
 3. 打开 Revit 2026，查看「附加模块 → H2-Revit」。插件尚未代码签名；若 Revit 显示插件加载确认，请核对来源后按你的组织策略处理。
 4. 配置 MCP 客户端，然后重新加载客户端配置。
 
-安装目录：`%LOCALAPPDATA%\H2-Revit\versions\0.1.0-beta.1`。安装器只写当前用户目录，自动备份已有的同 ID 插件注册，不修改模型或自动改写 Codex 配置。
+安装目录：`%LOCALAPPDATA%\H2-Revit\versions\1.0`。安装器只写当前用户目录，自动备份已有的同 ID 插件注册，不修改模型或自动改写 Codex 配置。
 
 ### Codex 配置
 
@@ -37,7 +37,7 @@
 
 ```toml
 [mcp_servers.h2-revit]
-command = 'C:\Users\YOUR_WINDOWS_USER\AppData\Local\H2-Revit\versions\0.1.0-beta.1\server\H2-Revit-MCP.exe'
+command = 'C:\Users\YOUR_WINDOWS_USER\AppData\Local\H2-Revit\versions\1.0\server\H2-Revit-MCP.exe'
 args = ["--toolsets", "all"]
 ```
 
@@ -61,7 +61,7 @@ args = ["--toolsets", "all"]
 
 ## 测试状态
 
-本版作为 **测试版** 发布，不宣称生产环境或所有 Revit 项目都已验证。
+当前发布版本为 **v1.0**。已完成的验证与尚未覆盖的场景如下。
 
 - Revit 2026 插件编译通过。
 - 真实 Windows 命名管道：16 客户端、48 次响应匹配、真实 PID 识别。

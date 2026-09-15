@@ -2,7 +2,7 @@
 [CmdletBinding(SupportsShouldProcess = $true)]
 param([switch]$Uninstall, [string]$TestRoot)
 $ErrorActionPreference = 'Stop'
-$version = '0.1.0-beta.1'
+$version = '1.0'
 $pluginId = '5e077288-82fd-4b2f-9f4e-a1849c38bb00'
 function Hash([string]$path) {
     $sha = [Security.Cryptography.SHA256]::Create(); $stream = [IO.File]::OpenRead($path)

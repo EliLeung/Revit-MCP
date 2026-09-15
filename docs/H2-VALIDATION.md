@@ -1,4 +1,4 @@
-# v0.1.0-beta.1 validation
+# v1.0 validation
 
 - PASS registry rename, deferred disconnect, targeted block/unblock, PID reuse
 - PASS duplicate Start is idempotent

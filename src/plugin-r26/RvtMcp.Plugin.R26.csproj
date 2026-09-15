@@ -3,7 +3,8 @@
     <TargetFramework>net8.0-windows7.0</TargetFramework>
     <RootNamespace>RvtMcp.Plugin</RootNamespace>
     <AssemblyName>RvtMcp.Plugin</AssemblyName>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <Version>1.0</Version>
     <UseWPF>true</UseWPF>
     <EnableDynamicLoading>true</EnableDynamicLoading>
     <RevitVersion>2026</RevitVersion>

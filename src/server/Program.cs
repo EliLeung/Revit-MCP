@@ -247,7 +247,7 @@ namespace RvtMcp.Server
             {
                 Name = "rvt-mcp",
                 Title = "Revit MCP",
-                Version = "0.6.1",
+                Version = "1.0",
                 Description = "Model Context Protocol gateway for Autodesk Revit 2022-2027",
                 WebsiteUrl = "https://github.com/bimwright/rvt-mcp"
             };

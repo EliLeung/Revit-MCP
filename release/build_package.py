@@ -5,7 +5,7 @@ repo=Path(__file__).resolve().parents[1]
 import subprocess
 subprocess.run(['dotnet','build',str(repo/'src/plugin-r26/RvtMcp.Plugin.R26.csproj'),'-c','Release','-p:RvtMcpSkipDeploy=true','-p:DebugType=None','-p:DebugSymbols=false'],check=True)
 subprocess.run(['dotnet','publish',str(repo/'src/server/RvtMcp.Server.csproj'),'-c','Release','-r','win-x64','--self-contained','true','-p:PublishSingleFile=true','-p:IncludeNativeLibrariesForSelfExtract=true','-p:DebugType=None','-p:DebugSymbols=false','-o',str(repo/'artifacts/server')],check=True)
-package=(repo/'artifacts/H2-Revit-v0.1.0-beta.1-Revit2026-win-x64');package.mkdir(parents=True,exist_ok=True)
+package=(repo/'artifacts/H2-Revit-v1.0-Revit2026-win-x64');package.mkdir(parents=True,exist_ok=True)
 for name in ['Install.ps1','Install.cmd','Uninstall.cmd']:
  shutil.copy2(repo/'release'/name,package/name)
 payload=package/'payload';plugin=payload/'plugin';server=payload/'server'
