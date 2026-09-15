@@ -29,7 +29,7 @@
 
 古い tag、古い `RvtMcp.Setup-*.zip` URL、`dotnet tool install -g Bimwright.Rvt.Server` / `RvtMcp.Server` は**使わないでください**。
 
-**AI エージェントの場合：** 停止してください。公開インストーラがないことをユーザーに伝えてください。開発者セットアップを明示的に求められない限り、clone / build / NuGet インストールはしないでください。手順は [AGENTS.md](AGENTS.md)。
+**AI エージェントの場合：** 停止してください。公開インストーラがないことをユーザーに伝えてください。開発者セットアップを明示的に求められない限り、clone / build / NuGet インストールはしないでください。手順は [AGENTS.md](../../AGENTS.md)。
 
 新しい GitHub Release が出るまでは、サポートされるインストールはソースからのビルドだけです（下記の開発者インストール）。
 
@@ -116,7 +116,7 @@ Revit ユーザーは自動化したいことはだいたい分かっていま�
 
 すべての会社向け万能 add-in ではありません。オフィスは違います。共有ランタイムの上に*自分の*ツールを育てる、という賭けです。
 
-**スコープ（正直に）：** 端ケースごとに MCP ツールを量産しません。typed があればそれ、なければ `revit_send_code_to_revit`（C# のみ）。プロジェクト側の family **管理**はある；フル Family Editor オーサリング一式と Revit Viewer ホストは当面対象外 — [docs/roadmap.md](docs/roadmap.md)。
+**スコープ（正直に）：** 端ケースごとに MCP ツールを量産しません。typed があればそれ、なければ `revit_send_code_to_revit`（C# のみ）。プロジェクト側の family **管理**はある；フル Family Editor オーサリング一式と Revit Viewer ホストは当面対象外 — [docs/roadmap.md](../roadmap.md)。
 
 ---
 
@@ -150,7 +150,7 @@ revit_send_code_to_revit   # C# 本体、プラグイン内でコンパイル実
 | **`send_code`** 本体もクラスタして提案 | さらに `--cache-send-code-bodies`（リダクト済み・ローカル） |
 | 短命のディスク journal | `persistSendCodeBodies` + TTL（既定のプライバシーではオフ） |
 
-Bake のコンパイルは **Revit 内** Roslyn — エンドユーザーに Visual Studio は不要。[docs/bake.md](docs/bake.md)。
+Bake のコンパイルは **Revit 内** Roslyn — エンドユーザーに Visual Studio は不要。[docs/bake.md](../bake.md)。
 
 ### トースト（任意）
 
@@ -266,7 +266,7 @@ MCP 名は `revit_*`。server↔plugin ワイヤ名はプレフィックスな�
 - `send_code` は Revit プロセス内で任意 C# — 強力で危険。不可なら toolbaker をオフ。
 - Adaptive bake、body キャッシュ、TTL journal は **opt-in** でユーザプロファイル下。既定では raw send_code 本体を長期ログに書かない。
 
-詳細：[SECURITY.md](SECURITY.md)、[docs/bake.md](docs/bake.md)。
+詳細：[SECURITY.md](../../.github/SECURITY.md)、[docs/bake.md](../bake.md)。
 
 ---
 
@@ -301,7 +301,7 @@ MCP 名は `revit_*`。server↔plugin ワイヤ名はプレフィックスな�
 | Cursor / Cline / VS Code Copilot | ドキュメントの JSON レイアウト |
 | Gemini CLI / Antigravity | `gemini mcp add` または settings JSON |
 
-インストーラ自動検出で足りることが多い。手編集は [AGENTS.md](AGENTS.md) と `docs/mcp-config-*.md`。
+インストーラ自動検出で足りることが多い。手編集は [AGENTS.md](../../AGENTS.md) と `docs/mcp-config-*.md`。
 
 ---
 
@@ -337,11 +337,11 @@ dotnet build src/plugin-r26/RvtMcp.Plugin.R26.csproj -c Release
 pwsh scripts/stage-plugin-zip.ps1 -Config Release
 ```
 
-貢献ルールとスナップショット：[CONTRIBUTING.md](CONTRIBUTING.md)。
+貢献ルールとスナップショット：[CONTRIBUTING.md](../../.github/CONTRIBUTING.md)。
 
 ### 成熟度
 
-使えるが神聖ではない。CI は 6 プラグインシェルとサーバテストをビルド。ランタイムの厚みは中間年が強め。本番モデルは慎重に、*自分の* Revit で確認。新規マシン用チェックリスト：[docs/testing/fresh-install-checklist.md](docs/testing/fresh-install-checklist.md)。
+使えるが神聖ではない。CI は 6 プラグインシェルとサーバテストをビルド。ランタイムの厚みは中間年が強め。本番モデルは慎重に、*自分の* Revit で確認。新規マシン用チェックリスト：[docs/testing/fresh-install-checklist.md](../testing/fresh-install-checklist.md)。
 
 ---
 
@@ -349,11 +349,11 @@ pwsh scripts/stage-plugin-zip.ps1 -Config Release
 
 | ドキュメント | 内容 |
 |--------------|------|
-| [AGENTS.md](AGENTS.md) | エージェント向けインストール手順 |
+| [AGENTS.md](../../AGENTS.md) | エージェント向けインストール手順 |
 | [ARCHITECTURE.md](ARCHITECTURE.md) | プロセス、転送、DTO 規約 |
-| [docs/bake.md](docs/bake.md) | Adaptive bake と本体プライバシー |
-| [docs/roadmap.md](docs/roadmap.md) | 直近の hardening と non-goals |
-| [docs/kei-equipment-import.md](docs/kei-equipment-import.md) | KEI SQLite ツール（`--toolsets kei`） |
+| [docs/bake.md](../bake.md) | Adaptive bake と本体プライバシー |
+| [docs/roadmap.md](../roadmap.md) | 直近の hardening と non-goals |
+| [docs/kei-equipment-import.md](../kei-equipment-import.md) | KEI SQLite ツール（`--toolsets kei`） |
 | [CHANGELOG.md](CHANGELOG.md) | リリースノート |
 
 ---
@@ -372,6 +372,6 @@ pwsh scripts/stage-plugin-zip.ps1 -Config Release
 
 ## ライセンス
 
-Apache-2.0 — [LICENSE](LICENSE)。
+Apache-2.0 — [LICENSE](../../LICENSE)。
 
 Revit および Autodesk は Autodesk, Inc. の商標です。bimwright は独立したオープンソースプロジェクトであり、Autodesk とは提携していません。

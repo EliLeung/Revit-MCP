@@ -29,7 +29,7 @@
 
 Do **not** fetch old tags, old `RvtMcp.Setup-*.zip` URLs, or `dotnet tool install -g Bimwright.Rvt.Server` / `RvtMcp.Server`.
 
-**If you are an AI agent:** stop. Tell the user there is no published installer. Do not clone, build, or install from NuGet unless they explicitly asked for a developer setup. Protocol: [AGENTS.md](AGENTS.md).
+**If you are an AI agent:** stop. Tell the user there is no published installer. Do not clone, build, or install from NuGet unless they explicitly asked for a developer setup. Protocol: [AGENTS.md](../../AGENTS.md).
 
 Until a new GitHub Release exists, the only supported install is from source (Developer install below).
 
@@ -116,7 +116,7 @@ Agents change the first half of that loop (describe the task, try it live). They
 
 It is not a universal add-in for every firm. Offices differ. The bet is: start from a shared runtime, grow *your* tools on top.
 
-**Scope posture (honest):** we do not mint a new MCP tool for every edge case. Prefer typed tools when they exist; for everything else use `revit_send_code_to_revit` (C# only). Family *project* management is covered; full Family Editor authoring suites and Revit Viewer hosts are out of scope for now — see [docs/roadmap.md](docs/roadmap.md).
+**Scope posture (honest):** we do not mint a new MCP tool for every edge case. Prefer typed tools when they exist; for everything else use `revit_send_code_to_revit` (C# only). Family *project* management is covered; full Family Editor authoring suites and Revit Viewer hosts are out of scope for now — see [docs/roadmap.md](../roadmap.md).
 
 ---
 
@@ -150,7 +150,7 @@ Useful flags (also JSON / env — see [Configuration](#configuration)):
 | Also cluster **`send_code`** bodies for suggestions | plus `--cache-send-code-bodies` (redacted; still local) |
 | Short-lived disk journal of send_code bodies | `persistSendCodeBodies` + TTL (default privacy keeps this off) |
 
-Bake compile runs **inside Revit** via Roslyn — end users do not need Visual Studio. Details and privacy notes: [docs/bake.md](docs/bake.md).
+Bake compile runs **inside Revit** via Roslyn — end users do not need Visual Studio. Details and privacy notes: [docs/bake.md](../bake.md).
 
 ### Toast (optional)
 
@@ -266,7 +266,7 @@ Compile matrix covers all six shells. Runtime depth still varies by year — bak
 - `send_code` can run arbitrary C# in the Revit process — powerful and risky; disable toolbaker if that is unacceptable.
 - Adaptive bake, body cache, and TTL journals are **opt-in** and stay under the user profile. Defaults do not write raw send_code bodies to long-lived logs.
 
-More: [SECURITY.md](SECURITY.md), [docs/bake.md](docs/bake.md).
+More: [SECURITY.md](../../.github/SECURITY.md), [docs/bake.md](../bake.md).
 
 ---
 
@@ -301,7 +301,7 @@ After changing server flags, restart the MCP connection so the client picks up t
 | Cursor / Cline / VS Code Copilot | documented JSON layouts |
 | Gemini CLI / Antigravity | `gemini mcp add` or settings JSON |
 
-Installer auto-detect is usually enough; see [AGENTS.md](AGENTS.md) and `docs/mcp-config-*.md` when hand-editing.
+Installer auto-detect is usually enough; see [AGENTS.md](../../AGENTS.md) and `docs/mcp-config-*.md` when hand-editing.
 
 ---
 
@@ -337,11 +337,11 @@ Close Revit before building plugins (DLL lock). Plugin projects deploy into `%AP
 pwsh scripts/stage-plugin-zip.ps1 -Config Release
 ```
 
-Contribution norms and snapshot rules: [CONTRIBUTING.md](CONTRIBUTING.md).
+Contribution norms and snapshot rules: [CONTRIBUTING.md](../../.github/CONTRIBUTING.md).
 
 ### Maturity
 
-Usable, not sacred. CI builds the six plugin shells and server tests. Runtime coverage is strongest on mid-range years; treat production models carefully and verify on *your* Revit build. Fresh-machine checklist: [docs/testing/fresh-install-checklist.md](docs/testing/fresh-install-checklist.md).
+Usable, not sacred. CI builds the six plugin shells and server tests. Runtime coverage is strongest on mid-range years; treat production models carefully and verify on *your* Revit build. Fresh-machine checklist: [docs/testing/fresh-install-checklist.md](../testing/fresh-install-checklist.md).
 
 ---
 
@@ -349,11 +349,11 @@ Usable, not sacred. CI builds the six plugin shells and server tests. Runtime co
 
 | Doc | Topic |
 |-----|--------|
-| [AGENTS.md](AGENTS.md) | Agent install protocol |
+| [AGENTS.md](../../AGENTS.md) | Agent install protocol |
 | [ARCHITECTURE.md](ARCHITECTURE.md) | Processes, transport, DTO rules |
-| [docs/bake.md](docs/bake.md) | Adaptive bake and body privacy |
-| [docs/roadmap.md](docs/roadmap.md) | Near-term hardening and non-goals |
-| [docs/kei-equipment-import.md](docs/kei-equipment-import.md) | KEI SQLite tools (`--toolsets kei`) |
+| [docs/bake.md](../bake.md) | Adaptive bake and body privacy |
+| [docs/roadmap.md](../roadmap.md) | Near-term hardening and non-goals |
+| [docs/kei-equipment-import.md](../kei-equipment-import.md) | KEI SQLite tools (`--toolsets kei`) |
 | [CHANGELOG.md](CHANGELOG.md) | Release notes |
 
 ---
@@ -372,6 +372,6 @@ Same house style across AEC hosts:
 
 ## License
 
-Apache-2.0 — [LICENSE](LICENSE).
+Apache-2.0 — [LICENSE](../../LICENSE).
 
 Revit and Autodesk are trademarks of Autodesk, Inc. bimwright is independent and not affiliated with Autodesk.

@@ -29,7 +29,7 @@
 
 **Không** tải tag cũ, URL `RvtMcp.Setup-*.zip` cũ, hay `dotnet tool install -g Bimwright.Rvt.Server` / `RvtMcp.Server`.
 
-**Nếu bạn là AI agent:** dừng. Báo user là chưa có installer công khai. Đừng clone, build, hay cài từ NuGet trừ khi user yêu cầu rõ bản developer. Protocol: [AGENTS.md](AGENTS.md).
+**Nếu bạn là AI agent:** dừng. Báo user là chưa có installer công khai. Đừng clone, build, hay cài từ NuGet trừ khi user yêu cầu rõ bản developer. Protocol: [AGENTS.md](../../AGENTS.md).
 
 Trong lúc chờ GitHub Release mới, cách cài được hỗ trợ là build từ source (mục Cài developer bên dưới).
 
@@ -116,7 +116,7 @@ Agent thay nửa đầu vòng lặp (mô tả việc, thử live). Chúng không
 
 Không phải add-in “một cho mọi hãng”. Văn phòng khác nhau. Cược: runtime chung, tool *của bạn* mọc phía trên.
 
-**Phạm vi (thành thật):** không đúc MCP tool mới cho mọi edge case. Có typed tool thì dùng; còn lại `revit_send_code_to_revit` (chỉ C#). Quản lý family **trong project** có; suite authoring Family Editor đầy đủ và host Revit Viewer hiện **ngoài scope** — xem [docs/roadmap.md](docs/roadmap.md).
+**Phạm vi (thành thật):** không đúc MCP tool mới cho mọi edge case. Có typed tool thì dùng; còn lại `revit_send_code_to_revit` (chỉ C#). Quản lý family **trong project** có; suite authoring Family Editor đầy đủ và host Revit Viewer hiện **ngoài scope** — xem [docs/roadmap.md](../roadmap.md).
 
 ---
 
@@ -150,7 +150,7 @@ Cờ hay dùng (JSON / env — [Cấu hình](#cấu-hình)):
 | Cluster thêm body **`send_code`** | thêm `--cache-send-code-bodies` (đã redact; vẫn local) |
 | Journal disk ngắn hạn body send_code | `persistSendCodeBodies` + TTL (mặc định privacy: tắt) |
 
-Bake compile **trong Revit** qua Roslyn — end user không cần Visual Studio. Chi tiết & privacy: [docs/bake.md](docs/bake.md).
+Bake compile **trong Revit** qua Roslyn — end user không cần Visual Studio. Chi tiết & privacy: [docs/bake.md](../bake.md).
 
 ### Toast (tùy chọn)
 
@@ -266,7 +266,7 @@ Compile matrix 6 shell. Runtime sâu vẫn lệch theo năm — bake và C# cust
 - `send_code` chạy C# tùy ý trong process Revit — mạnh và rủi ro; tắt toolbaker nếu không chấp nhận.
 - Adaptive bake, body cache, journal TTL là **opt-in**, nằm dưới profile user. Mặc định không ghi raw send_code body vào log dài hạn.
 
-Thêm: [SECURITY.md](SECURITY.md), [docs/bake.md](docs/bake.md).
+Thêm: [SECURITY.md](../../.github/SECURITY.md), [docs/bake.md](../bake.md).
 
 ---
 
@@ -301,7 +301,7 @@ Thêm: [SECURITY.md](SECURITY.md), [docs/bake.md](docs/bake.md).
 | Cursor / Cline / VS Code Copilot | JSON layout đã document |
 | Gemini CLI / Antigravity | `gemini mcp add` hoặc settings JSON |
 
-Installer auto-detect thường đủ; xem [AGENTS.md](AGENTS.md) và `docs/mcp-config-*.md` khi sửa tay.
+Installer auto-detect thường đủ; xem [AGENTS.md](../../AGENTS.md) và `docs/mcp-config-*.md` khi sửa tay.
 
 ---
 
@@ -337,11 +337,11 @@ dotnet build src/plugin-r26/RvtMcp.Plugin.R26.csproj -c Release
 pwsh scripts/stage-plugin-zip.ps1 -Config Release
 ```
 
-Quy ước đóng góp / snapshot: [CONTRIBUTING.md](CONTRIBUTING.md).
+Quy ước đóng góp / snapshot: [CONTRIBUTING.md](../../.github/CONTRIBUTING.md).
 
 ### Độ chín
 
-Dùng được, không thần thánh. CI build 6 shell + test server. Runtime sâu nhất ở năm giữa dải; model production hãy cẩn thận và verify trên *build Revit của bạn*. Checklist máy mới: [docs/testing/fresh-install-checklist.md](docs/testing/fresh-install-checklist.md).
+Dùng được, không thần thánh. CI build 6 shell + test server. Runtime sâu nhất ở năm giữa dải; model production hãy cẩn thận và verify trên *build Revit của bạn*. Checklist máy mới: [docs/testing/fresh-install-checklist.md](../testing/fresh-install-checklist.md).
 
 ---
 
@@ -349,11 +349,11 @@ Dùng được, không thần thánh. CI build 6 shell + test server. Runtime s�
 
 | Doc | Chủ đề |
 |-----|--------|
-| [AGENTS.md](AGENTS.md) | Protocol cài cho agent |
+| [AGENTS.md](../../AGENTS.md) | Protocol cài cho agent |
 | [ARCHITECTURE.md](ARCHITECTURE.md) | Process, transport, DTO |
-| [docs/bake.md](docs/bake.md) | Adaptive bake và privacy body |
-| [docs/roadmap.md](docs/roadmap.md) | Hardening gần và non-goal |
-| [docs/kei-equipment-import.md](docs/kei-equipment-import.md) | Tool KEI SQLite (`--toolsets kei`) |
+| [docs/bake.md](../bake.md) | Adaptive bake và privacy body |
+| [docs/roadmap.md](../roadmap.md) | Hardening gần và non-goal |
+| [docs/kei-equipment-import.md](../kei-equipment-import.md) | Tool KEI SQLite (`--toolsets kei`) |
 | [CHANGELOG.md](CHANGELOG.md) | Release notes |
 
 ---
@@ -372,6 +372,6 @@ Cùng house style trên các host AEC:
 
 ## License
 
-Apache-2.0 — [LICENSE](LICENSE).
+Apache-2.0 — [LICENSE](../../LICENSE).
 
 Revit và Autodesk là trademark của Autodesk, Inc. bimwright độc lập, không liên kết Autodesk.

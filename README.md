@@ -1,8 +1,10 @@
-# H2-Revit
+# H2-Revit v1.0
 
 **Revit 2026 的 MCP 多客户端连接与连接管理增强版。** 基于 [bimwright/rvt-mcp](https://github.com/bimwright/rvt-mcp) 0.6.1，保留 Apache-2.0 许可和原作者归属。
 
 [下载安装包](https://github.com/EliLeung/Revit-MCP/releases/download/v0.1.0-beta.1/H2-Revit-v0.1.0-beta.1-Revit2026-win-x64.zip) · [发布说明](https://github.com/EliLeung/Revit-MCP/releases/tag/v0.1.0-beta.1) · [许可证](LICENSE) · [第三方声明](THIRD-PARTY-NOTICES.md)
+
+**只想安装使用？下载上面的安装包即可，无需下载仓库源码。** 开发与历史文档见 [文档目录](docs/README.md)。
 
 ## 第一版功能
 
@@ -81,7 +83,7 @@ dotnet publish src/server/RvtMcp.Server.csproj -c Release -r win-x64 --self-cont
 
 打包脚本：安装 Python 3 后运行 `python release/build_package.py`，输出在 `artifacts/`。
 
-当前分支采用独立提交历史；源码基于上游项目导入，原项目归属和许可继续保留。第三方 NuGet 依赖由构建工具获取，安装包不包含 Autodesk Revit/RevitAPI DLL。`README.upstream.md` 是原项目说明，支持范围和安装方式以本文为准。
+当前分支采用独立提交历史；源码基于上游项目导入，原项目归属和许可继续保留。第三方 NuGet 依赖由构建工具获取，安装包不包含 Autodesk Revit/RevitAPI DLL。[原项目说明](docs/upstream/README.upstream.md) 是原项目说明，支持范围和安装方式以本文为准。
 
 ## License / Attribution
 

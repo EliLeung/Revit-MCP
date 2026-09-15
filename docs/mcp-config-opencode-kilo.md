@@ -5,8 +5,8 @@
 
 These two CLI agents share a **non-standard MCP config format** that differs from both Anthropic (Claude Code / Desktop) and OpenAI (Codex) conventions. Copy-pasting an `mcpServers` block from a Claude config will silently fail in either tool — they look for `mcp` (no `Servers` suffix) and require array-form `command` plus an `environment` key (not `env`).
 
-For Anthropic clients see [`mcp-config-claude-clients.md`](./mcp-config-claude-clients.md).
-For OpenAI Codex see [`mcp-config-codex.md`](./mcp-config-codex.md).
+For Anthropic clients see [`mcp-config-claude-clients.md`](mcp-config-claude-clients.md).
+For OpenAI Codex see [`mcp-config-codex.md`](mcp-config-codex.md).
 
 ---
 

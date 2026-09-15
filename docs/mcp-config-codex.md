@@ -5,7 +5,7 @@
 
 Codex is OpenAI's coding agent. It ships as three surfaces that talk to the same model but have **different config-loading rules** — this matters because a setup that works in Codex CLI may silently fail in Codex Desktop.
 
-For Anthropic clients (Claude Code CLI, Claude Code VS Code extension, Claude Desktop), see [`mcp-config-claude-clients.md`](./mcp-config-claude-clients.md).
+For Anthropic clients (Claude Code CLI, Claude Code VS Code extension, Claude Desktop), see [`mcp-config-claude-clients.md`](mcp-config-claude-clients.md).
 
 ---
 

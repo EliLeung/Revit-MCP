@@ -44,7 +44,7 @@ Produces `build/plugin-zip/RvtMcp.Plugin.R{22..27}.zip`. Run this before cutting
 
 ## Project layout
 
-See [ARCHITECTURE.md](ARCHITECTURE.md) for the conceptual model. Quick reference:
+See [ARCHITECTURE.md](../docs/upstream/ARCHITECTURE.md) for the conceptual model. Quick reference:
 
 | Path | What lives here |
 |------|-----------------|
