@@ -1,0 +1,73 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <LangVersion>latest</LangVersion>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+
+  <!--
+    Test project does NOT reference a plugin shell. It uses two sources:
+      1. ProjectReference to Server below — covers ToolsetFilter, ToolsetAttribute,
+         BimwrightConfig (all compiled into the Server assembly).
+      2. Compile-Include below — glob-includes Revit-API-free shared files that
+         are NOT in the Server assembly (plugin-only: ErrorSanitizer, SchemaValidator,
+         BatchExecutor) so we can unit-test them without loading Autodesk assemblies.
+    See `Checklist-Bimwright-v0.1.0.md` P2-001 scope — "Option 2 refined".
+  -->
+  <ItemGroup>
+    <Compile Include="..\..\src\shared\Security\ErrorSanitizer.cs" Link="Shared\ErrorSanitizer.cs" />
+    <Compile Include="..\..\src\shared\Security\McpResponsePrivacy.cs" Link="Shared\McpResponsePrivacy.cs" />
+    <Compile Include="..\..\src\shared\Security\PathAllowlist.cs" Link="Shared\PathAllowlist.cs" />
+    <Compile Include="..\..\src\shared\Logging\McpLogger.cs" Link="Shared\McpLogger.cs" />
+    <Compile Include="..\..\src\shared\Logging\McpSessionLog.cs" Link="Shared\McpSessionLog.cs" />
+    <Compile Include="..\..\src\shared\Logging\SendCodeJournal.cs" Link="Shared\SendCodeJournal.cs" />
+    <Compile Include="..\..\src\shared\Logging\SendCodeJournalGate.cs" Link="Shared\SendCodeJournalGate.cs" />
+    <Compile Include="..\..\src\shared\Views\Toast\ToolActivityClassifier.cs" Link="Shared\ToolActivityClassifier.cs" />
+    <Compile Include="..\..\src\shared\Views\Toast\ToolNameFormatter.cs" Link="Shared\ToolNameFormatter.cs" />
+    <Compile Include="..\..\src\shared\Views\Toast\ToastContentBuilder.cs" Link="Shared\ToastContentBuilder.cs" />
+    <Compile Include="..\..\src\shared\Views\Toast\McpToastViewModel.cs" Link="Shared\McpToastViewModel.cs" />
+    <Compile Include="..\..\src\shared\Views\Toast\ToastThumbnailLoader.cs" Link="Shared\ToastThumbnailLoader.cs" />
+    <Compile Include="..\..\src\shared\Infrastructure\CaptureOutputResolver.cs" Link="Shared\CaptureOutputResolver.cs" />
+    <Compile Include="..\..\src\shared\Infrastructure\CaptureOutputPath.cs" Link="Shared\CaptureOutputPath.cs" />
+    <Compile Include="..\..\src\shared\Infrastructure\SchemaValidator.cs" Link="Shared\SchemaValidator.cs" />
+    <Compile Include="..\..\src\shared\Infrastructure\ResponseSizeGuard.cs" Link="Shared\ResponseSizeGuard.cs" />
+    <Compile Include="..\..\src\shared\Infrastructure\ResponseSizePolicyCatalog.cs" Link="Shared\ResponseSizePolicyCatalog.cs" />
+    <Compile Include="..\..\src\shared\Infrastructure\ResponsePaging.cs" Link="Shared\ResponsePaging.cs" />
+    <Compile Include="..\..\src\shared\Infrastructure\MutationResponseCompactor.cs" Link="Shared\MutationResponseCompactor.cs" />
+    <Compile Include="..\..\src\shared\Infrastructure\ResponseSpillWriter.cs" Link="Shared\ResponseSpillWriter.cs" />
+    <Compile Include="..\..\src\shared\Infrastructure\ResponseSpillPolicy.cs" Link="Shared\ResponseSpillPolicy.cs" />
+    <Compile Include="..\..\src\shared\Infrastructure\ResponseSpillProcessor.cs" Link="Shared\ResponseSpillProcessor.cs" />
+    <Compile Include="..\..\src\shared\Infrastructure\RequestWait.cs" Link="Shared\RequestWait.cs" />
+    <Compile Include="..\..\src\shared\Database\KeiSqlGuard.cs" Link="Shared\KeiSqlGuard.cs" />
+    <Compile Include="..\..\src\shared\Config\StatusPrivacySection.cs" Link="Shared\StatusPrivacySection.cs" />
+    <Compile Include="..\..\src\shared\Handlers\BatchExecutor.cs" Link="Shared\BatchExecutor.cs" />
+    <Compile Include="..\..\src\shared\ToolBaker\BakedToolRegistry.cs" Link="Shared\BakedToolRegistry.cs" />
+    <Compile Include="..\..\src\shared\ToolBaker\BakedToolParameterDefaults.cs" Link="Shared\BakedToolParameterDefaults.cs" />
+    <Compile Include="..\..\src\shared\ToolBaker\BakedToolRuntimeCache.cs" Link="Shared\BakedToolRuntimeCache.cs" />
+    <Compile Include="..\..\src\shared\ToolBaker\BakedToolDispatchAuthorizer.cs" Link="Shared\BakedToolDispatchAuthorizer.cs" />
+    <Compile Include="..\..\src\shared\ToolBaker\BakeCompilerPolicy.cs" Link="Shared\BakeCompilerPolicy.cs" />
+    <Compile Include="..\..\src\shared\Lint\ViewNamingAnalyzer.cs" Link="Shared\ViewNamingAnalyzer.cs" />
+    <Compile Include="..\..\src\shared\Lint\FirmProfile.cs" Link="Shared\FirmProfile.cs" />
+    <Compile Include="..\..\src\shared\Lint\FirmProfileLibrary.cs" Link="Shared\FirmProfileLibrary.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\server\RvtMcp.Server.csproj">
+      <AdditionalProperties>UseAppHost=false;OutputPath=$(MSBuildThisFileDirectory)..\server-staging\</AdditionalProperties>
+    </ProjectReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.10.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.8.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="xunit" Version="2.9.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>

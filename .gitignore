@@ -1,0 +1,78 @@
+# C# Build
+bin/
+obj/
+*.user
+*.suo
+*.cache
+*.pdb
+*.log
+
+# .NET user-local launch profiles
+**/Properties/launchSettings.json
+
+# TypeScript Build
+node_modules/
+build/
+dist/
+
+# IDE
+.vs/
+.idea/
+*.swp
+
+# Temp
+__temp_research/
+tests/server-staging/
+
+# Private — internal research, checklists, TODOs, journal, reference repos.
+# Never goes public. Single catch-all. See .private/README.md for index.
+.private/
+
+# Claude Code
+.claude/
+# Ignore stray/nested CLAUDE.md (local agent notes) but track the repo-root
+# project guide — it is the canonical per-project doc referenced from the family README.
+CLAUDE.md
+!/CLAUDE.md
+
+# Agent session notes / local changelog drafts
+.Codex/
+
+# Codebase map stubs (local "Explorer"/codemap tooling — generated scaffolding, filled in locally, not a repo artifact)
+codemap.md
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Git worktrees
+.worktrees/
+
+# User-local MCP client config (use .mcp.json.example as template)
+.mcp.json
+
+# Research archives (local reference only, not repo artifact)
+docs/research-archive/
+
+# Internal process docs — drafts, plans, specs, brainstorms, reviews, dev-roadmaps.
+# Convention: these belong in .private/. NOT for public release.
+# (docs/roadmap.md and docs/testing/ stay PUBLIC — the READMEs link to them.)
+docs/superpowers/
+docs/design/brainstorm/
+docs/reviews/
+docs/benchmarks/
+docs/221-tools/
+docs/roadmap-221-tools.md
+
+# MCP Registry publisher CLI (downloaded on demand)
+.mcp-publisher/
+
+# `dotnet pack` output (CI publishes nupkg from here)
+artifacts/
+
+# Local `dotnet publish` output (MCP registry / KEI dry-run packs)
+publish/
+
+# Local AI review sessions (prompt + output dumps)
+runs/

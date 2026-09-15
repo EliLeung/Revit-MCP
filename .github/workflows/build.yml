@@ -1,0 +1,22 @@
+# Modified for H2-Revit: test the supported Revit 2026 build only.
+name: H2-Revit checks
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+      - name: Build Revit 2026 plugin
+        run: dotnet build src/plugin-r26/RvtMcp.Plugin.R26.csproj -c Release -p:RvtMcpSkipDeploy=true
+      - name: Test multi-client pipe transport
+        run: dotnet run --project tests/H2.TransportTests/TransportTests.csproj -c Release
