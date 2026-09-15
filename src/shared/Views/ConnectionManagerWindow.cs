@@ -1,4 +1,4 @@
-// Modified for H2-Revit, 2026-09-15: multi-client connections, connection management, and/or product branding.
+// Modified for Revit-MCP, 2026-09-15: multi-client connections, connection management, and/or product branding.
 // Based on bimwright/rvt-mcp; original licensing and attribution retained.
 using System;
 using System.Linq;
@@ -22,7 +22,7 @@ namespace RvtMcp.Plugin.Views
         public ConnectionManagerWindow(Func<PipeTransportServer> provider)
         {
             _provider = provider;
-            Title = "H2-Revit · 连接管理"; Width = 1080; Height = 570; MinWidth = 920; MinHeight = 460;
+            Title = "Revit-MCP · 连接管理"; Width = 1080; Height = 570; MinWidth = 920; MinHeight = 460;
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
             FontFamily = new FontFamily("Microsoft YaHei UI"); FontSize = 13;
             Background = new SolidColorBrush(Color.FromRgb(246, 248, 251));

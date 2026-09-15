@@ -1,4 +1,4 @@
-// Modified for H2-Revit, 2026-09-15: multi-client connections, connection management, and/or product branding.
+// Modified for Revit-MCP, 2026-09-15: multi-client connections, connection management, and/or product branding.
 // Based on bimwright/rvt-mcp; original licensing and attribution retained.
 using System.Reflection;
 using System.Collections.Generic;
@@ -18,7 +18,7 @@ namespace RvtMcp.Plugin
 
     public static class RibbonSetup
     {
-        private const string PanelName = "H2-Revit";
+        private const string PanelName = "Revit-MCP";
         private static readonly HashSet<string> CreatedButtons = new HashSet<string>();
 
         public static RibbonResult Create(UIControlledApplication application, RvtMcpConfig config = null, BakedToolRuntimeCache runtimeCache = null)

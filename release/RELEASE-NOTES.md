@@ -1,10 +1,10 @@
-# H2-Revit v1.0
+# Revit-MCP v1.0
 
 首个公开版本，仅提供 Windows x64 / Revit 2026 安装包。
 
 ## 下载使用
 
-下载 `H2-Revit-v1.0-Revit2026-win-x64.zip`，完整解压。关闭 Revit 后运行 `Install.cmd`。启动 Revit，在「附加模块 → H2-Revit → 连接管理」查看和管理连接。
+下载 `Revit-MCP-v1.0-Revit2026-win-x64.zip`，完整解压。关闭 Revit 后运行 `Install.cmd`。启动 Revit，在「附加模块 → Revit-MCP → 连接管理」查看和管理连接。
 
 MCP 服务程序随包提供；按 README 将安装器生成的 `codex-mcp.toml` 配置加入客户端。卸载运行 `Uninstall.cmd`。
 

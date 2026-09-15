@@ -1,11 +1,11 @@
-# H2-Revit package builder; Apache-2.0.
+# Revit-MCP package builder; Apache-2.0.
 from pathlib import Path
 import json,shutil,hashlib,xml.etree.ElementTree as ET,urllib.request
 repo=Path(__file__).resolve().parents[1]
 import subprocess
 subprocess.run(['dotnet','build',str(repo/'src/plugin-r26/RvtMcp.Plugin.R26.csproj'),'-c','Release','-p:RvtMcpSkipDeploy=true','-p:DebugType=None','-p:DebugSymbols=false'],check=True)
 subprocess.run(['dotnet','publish',str(repo/'src/server/RvtMcp.Server.csproj'),'-c','Release','-r','win-x64','--self-contained','true','-p:PublishSingleFile=true','-p:IncludeNativeLibrariesForSelfExtract=true','-p:DebugType=None','-p:DebugSymbols=false','-o',str(repo/'artifacts/server')],check=True)
-package=(repo/'artifacts/H2-Revit-v1.0-Revit2026-win-x64');package.mkdir(parents=True,exist_ok=True)
+package=(repo/'artifacts/Revit-MCP-v1.0-Revit2026-win-x64');package.mkdir(parents=True,exist_ok=True)
 for name in ['Install.ps1','Install.cmd','Uninstall.cmd']:
  shutil.copy2(repo/'release'/name,package/name)
 payload=package/'payload';plugin=payload/'plugin';server=payload/'server'
@@ -15,7 +15,7 @@ for p in build.glob('*.dll'):
  assert not p.name.lower().startswith('revitapi')
  shutil.copy2(p,plugin/p.name)
 shutil.copy2(build/'runtimes/win-x64/native/e_sqlite3.dll',plugin/'e_sqlite3.dll')
-shutil.copy2(repo/'artifacts/server/RvtMcp.Server.exe',server/'H2-Revit-MCP.exe')
+shutil.copy2(repo/'artifacts/server/RvtMcp.Server.exe',server/'Revit-MCP.exe')
 for name in ['LICENSE','THIRD-PARTY-NOTICES.md']:
  shutil.copy2(repo/name,payload/name);shutil.copy2(repo/name,package/name)
 licenses=payload/'licenses';licenses.mkdir(exist_ok=True)
@@ -43,7 +43,7 @@ for name,path in sorted(packages.items()):
    shutil.copy2(p,target);found.append(p.name)
  if not any('license' in n.lower() or 'copying' in n.lower() for n in found) and lic is not None and lic.attrib.get('type')=='expression':
   expr=lic.text
-  request=urllib.request.Request('https://raw.githubusercontent.com/spdx/license-list-data/main/text/'+expr+'.txt',headers={'User-Agent':'H2-Revit-license-bundle'})
+  request=urllib.request.Request('https://raw.githubusercontent.com/spdx/license-list-data/main/text/'+expr+'.txt',headers={'User-Agent':'Revit-MCP-license-bundle'})
   try:
    license_text=urllib.request.urlopen(request,timeout=30).read()
    (out/'LICENSE.txt').write_bytes(license_text);found.append('LICENSE.txt')
@@ -62,9 +62,9 @@ print(json.dumps({'package':str(package),'license_packages':len(rows),'payload_f
 
 shutil.copy2(repo/'README.md',package/'README.md')
 shutil.copy2(repo/'release/RELEASE-NOTES.md',package/'RELEASE-NOTES.md')
-shutil.copy2(repo/'docs/H2-VALIDATION.md',package/'VALIDATION.md')
+shutil.copy2(repo/'docs/VALIDATION.md',package/'VALIDATION.md')
 (package/'docs').mkdir(exist_ok=True)
-shutil.copy2(repo/'docs/h2-connection-manager.png',package/'docs/h2-connection-manager.png')
+shutil.copy2(repo/'docs/connection-manager.png',package/'docs/connection-manager.png')
 archive=shutil.make_archive(str(package),'zip',root_dir=package.parent,base_dir=package.name)
 digest=hashlib.sha256(Path(archive).read_bytes()).hexdigest()
 Path(archive+'.sha256').write_text(digest+'  '+Path(archive).name+'\n',encoding='ascii')

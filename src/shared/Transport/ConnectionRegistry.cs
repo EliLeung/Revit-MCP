@@ -1,4 +1,4 @@
-// Modified for H2-Revit, 2026-09-15: multi-client connections, connection management, and/or product branding.
+// Modified for Revit-MCP, 2026-09-15: multi-client connections, connection management, and/or product branding.
 // Based on bimwright/rvt-mcp; original licensing and attribution retained.
 using System;
 using System.Collections.Generic;

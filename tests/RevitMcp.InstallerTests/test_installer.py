@@ -6,7 +6,7 @@ args = argparse.ArgumentParser()
 args.add_argument('--package', required=True)
 options = args.parse_args()
 package = Path(options.package).resolve()
-with tempfile.TemporaryDirectory(prefix='h2-revit-installer-') as directory:
+with tempfile.TemporaryDirectory(prefix='revit-mcp-installer-') as directory:
     root = Path(directory)
     sandbox = root / 'sandbox'
     def run(*extra, ok=True, source=package):
@@ -16,10 +16,10 @@ with tempfile.TemporaryDirectory(prefix='h2-revit-installer-') as directory:
     run('-WhatIf')
     assert not sandbox.exists(), 'Dry-run wrote files'
     run()
-    state_path = sandbox/'LocalAppData/H2-Revit/install-state.json'
+    state_path = sandbox/'LocalAppData/Revit-MCP/install-state.json'
     state = json.loads(state_path.read_text(encoding='utf-8-sig'))
     target = Path(state['target'])
-    assert target.exists() and 'H2-Revit' in target.read_text()
+    assert target.exists() and 'Revit-MCP' in target.read_text()
     run()
     run('-Uninstall')
     assert not target.exists()

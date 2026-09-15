@@ -1,20 +1,20 @@
-# H2-Revit v1.0
+# Revit-MCP v1.0
 
 **Revit 2026 的 MCP 多客户端连接与连接管理增强版。** 
 
-[下载安装包](https://github.com/EliLeung/Revit-MCP/releases/download/v1.0/H2-Revit-v1.0-Revit2026-win-x64.zip) · [发布说明](https://github.com/EliLeung/Revit-MCP/releases/tag/v1.0) · [许可证](LICENSE) · [第三方声明](THIRD-PARTY-NOTICES.md)
+[下载安装包](https://github.com/EliLeung/Revit-MCP/releases/download/v1.0/Revit-MCP-v1.0-Revit2026-win-x64.zip) · [发布说明](https://github.com/EliLeung/Revit-MCP/releases/tag/v1.0) · [许可证](LICENSE) · [第三方声明](THIRD-PARTY-NOTICES.md)
 
 **只想安装使用？下载上面的安装包即可，无需下载仓库源码。** 开发与历史文档见 [文档目录](docs/README.md)。
 
 ## 第一版功能
 
 - 最多 16 个 MCP 客户端同时连接同一个 Revit 2026 实例。
-- Revit「附加模块 → H2-Revit → 连接管理」窗口，每秒刷新。
+- Revit「附加模块 → Revit-MCP → 连接管理」窗口，每秒刷新。
 - 显示连接编号、客户端进程、PID、接入时间、最近请求、活动时间和状态。
 - 备注名称、选择性断开、临时阻止重连与解除阻止。
 - 保留原项目的 Revit 工具；内含独立运行的 Windows x64 MCP 服务程序。
 
-![连接管理窗口示例](docs/h2-connection-manager.png)
+![连接管理窗口示例](docs/connection-manager.png)
 
 图中为独立 WPF 窗口的示例数据，不是真实用户会话记录。
 
@@ -24,20 +24,20 @@
 
 1. 下载上方 ZIP 并完整解压，不要在压缩包内直接运行。
 2. 保存模型、关闭 Revit，双击 `Install.cmd`。无需管理员权限或 .NET SDK。
-3. 打开 Revit 2026，查看「附加模块 → H2-Revit」。插件尚未代码签名；若 Revit 显示插件加载确认，请核对来源后按你的组织策略处理。
+3. 打开 Revit 2026，查看「附加模块 → Revit-MCP」。插件尚未代码签名；若 Revit 显示插件加载确认，请核对来源后按你的组织策略处理。
 4. 配置 MCP 客户端，然后重新加载客户端配置。
 
-安装目录：`%LOCALAPPDATA%\H2-Revit\versions\1.0`。安装器只写当前用户目录，自动备份已有的同 ID 插件注册，不修改模型或自动改写 Codex 配置。
+安装目录：`%LOCALAPPDATA%\Revit-MCP\versions\1.0`。安装器只写当前用户目录，自动备份已有的同 ID 插件注册，不修改模型或自动改写 Codex 配置。
 
 ### Codex 配置
 
-安装后打开 `%LOCALAPPDATA%\H2-Revit\codex-mcp.toml`，将其中已展开绝对路径的配置加入 `%USERPROFILE%\.codex\config.toml`。如已有 `rvt-mcp` 配置，请替换原条目，避免重复加载同一组工具。
+安装后打开 `%LOCALAPPDATA%\Revit-MCP\codex-mcp.toml`，将其中已展开绝对路径的配置加入 `%USERPROFILE%\.codex\config.toml`。如已有 `rvt-mcp` 配置，请替换原条目，避免重复加载同一组工具。
 
 配置格式如下，`YOUR_WINDOWS_USER` 必须替换为实际目录；安装器生成的文件已自动替换：
 
 ```toml
-[mcp_servers.h2-revit]
-command = 'C:\Users\YOUR_WINDOWS_USER\AppData\Local\H2-Revit\versions\1.0\server\H2-Revit-MCP.exe'
+[mcp_servers.revit-mcp]
+command = 'C:\Users\YOUR_WINDOWS_USER\AppData\Local\Revit-MCP\versions\1.0\server\Revit-MCP.exe'
 args = ["--toolsets", "all"]
 ```
 
@@ -77,7 +77,7 @@ args = ["--toolsets", "all"]
 
 ```powershell
 dotnet build src/plugin-r26/RvtMcp.Plugin.R26.csproj -c Release -p:RvtMcpSkipDeploy=true
-dotnet run --project tests/H2.TransportTests/TransportTests.csproj -c Release
+dotnet run --project tests/RevitMcp.TransportTests/TransportTests.csproj -c Release
 dotnet publish src/server/RvtMcp.Server.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true -p:DebugType=None -p:DebugSymbols=false
 ```
 
@@ -89,4 +89,4 @@ dotnet publish src/server/RvtMcp.Server.csproj -c Release -r win-x64 --self-cont
 
 Apache License 2.0. Original project copyright 2026 Khoa Le. See [LICENSE](LICENSE) and [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
 
-H2-Revit is an independent community enhancement, not an official Autodesk or upstream release.
+Revit-MCP is an independent community enhancement, not an official Autodesk or upstream release.
